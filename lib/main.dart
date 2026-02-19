@@ -31,6 +31,7 @@ class MyAppState extends ChangeNotifier {
 
   void getNext() {
     current = WordPair.random();
+
     notifyListeners();
   }
 }
@@ -42,9 +43,15 @@ class MyHomePage extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("NamerApp", style: TextStyle(color: Colors.white)),
+          centerTitle: true,
+          backgroundColor: Colors.orange,
+        ),
         body: Column(
           children: [
             Text('A random AWESOME idea:'),
+            
             Text(appState.current.asLowerCase),
 
             ElevatedButton(
